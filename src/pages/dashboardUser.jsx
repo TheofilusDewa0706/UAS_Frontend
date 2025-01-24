@@ -18,7 +18,7 @@ const DashboardUser = () => {
   // Fetch data komik
   const fetchKomik = async () => {
     try {
-      const response = await axios.get("http://localhost:8081/komik/", {
+      const response = await axios.get("http://localhost:8080/komik/", {
         headers: {
           Authorization: `Bearer ${bearerToken}`,
         },
@@ -32,7 +32,7 @@ const DashboardUser = () => {
   // Fetch data komentar
   const fetchKomentar = async () => {
     try {
-      const response = await axios.get("http://localhost:8081/comments/", {
+      const response = await axios.get("http://localhost:8080/comments/", {
         headers: {
           Authorization: `Bearer ${bearerToken}`,
         },
@@ -58,7 +58,7 @@ const DashboardUser = () => {
 
       if (editId) {
         await axios.put(
-          `http://localhost:8081/comments/${editId}`,
+          `http://localhost:8080/comments/${editId}`,
           newKomentar,
           {
             headers: {
@@ -68,7 +68,7 @@ const DashboardUser = () => {
         );
         console.log("Komentar berhasil diperbarui.");
       } else {
-        await axios.post("http://localhost:8081/comments/", newKomentar, {
+        await axios.post("http://localhost:8080/comments/", newKomentar, {
           headers: {
             Authorization: `Bearer ${bearerToken}`,
           },
@@ -89,7 +89,7 @@ const DashboardUser = () => {
   // Hapus komentar
   const deleteKomentar = async (id) => {
     try {
-      await axios.delete(`http://localhost:8081/comments/${id}`, {
+      await axios.delete(`http://localhost:8080/comments/${id}`, {
         headers: {
           Authorization: `Bearer ${bearerToken}`,
         },

@@ -18,7 +18,7 @@ const DashboardAdmin = () => {
   // Fetch data komik
   const fetchKomik = async () => {
     try {
-      const response = await axios.get("http://localhost:8081/komik/", {
+      const response = await axios.get("http://localhost:8080/komik/", {
         headers: {
           Authorization: `Bearer ${bearerToken}`,
         },
@@ -32,7 +32,7 @@ const DashboardAdmin = () => {
   // Fetch data komentar
   const fetchKomentar = async () => {
     try {
-      const response = await axios.get("http://localhost:8081/comments/", {
+      const response = await axios.get("http://localhost:8080/comments/", {
         headers: {
           Authorization: `Bearer ${bearerToken}`,
         },
@@ -56,14 +56,14 @@ const DashboardAdmin = () => {
       };
 
       if (editId) {
-        await axios.put(`http://localhost:8081/komik/${editId}`, newKomik, {
+        await axios.put(`http://localhost:8080/komik/${editId}`, newKomik, {
           headers: {
             Authorization: `Bearer ${bearerToken}`,
           },
         });
         console.log("Komik berhasil diperbarui.");
       } else {
-        await axios.post("http://localhost:8081/komik/", newKomik, {
+        await axios.post("http://localhost:8080/komik/", newKomik, {
           headers: {
             Authorization: `Bearer ${bearerToken}`,
           },
@@ -84,7 +84,7 @@ const DashboardAdmin = () => {
   // Hapus komik
   const deleteKomik = async (id) => {
     try {
-      await axios.delete(`http://localhost:8081/komik/${id}`, {
+      await axios.delete(`http://localhost:8080/komik/${id}`, {
         headers: {
           Authorization: `Bearer ${bearerToken}`,
         },
@@ -99,7 +99,7 @@ const DashboardAdmin = () => {
   // Hapus komentar
   const deleteKomentar = async (id) => {
     try {
-      await axios.delete(`http://localhost:8081/comments/${id}`, {
+      await axios.delete(`http://localhost:8080/comments/${id}`, {
         headers: {
           Authorization: `Bearer ${bearerToken}`,
         },
