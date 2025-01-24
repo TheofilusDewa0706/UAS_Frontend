@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/authContexts";
 import ProtectedRoute from "./components/protectedRouted";
-import Login from "./pages/Login";
+import Login from "./pages/login";
 import DashboardAdmin from "./pages/dashboardAdmin";
 import DashboardUser from "./pages/dashboardUser";
 import CheckoutPage from "./pages/checkout"; // Import halaman Checkout
