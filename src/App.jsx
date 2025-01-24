@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/authContexts";
 import ProtectedRoute from "./components/protectedRouted";
 import Login from "./pages/Login";
-import DashboardAdmin from "./pages/DashboardAdmin";
-import DashboardUser from "./pages/DashboardUser";
+import DashboardAdmin from "./pages/dashboardAdmin";
+import DashboardUser from "./pages/dashboardUser";
 import CheckoutPage from "./pages/checkout"; // Import halaman Checkout
 
 function App() {
