@@ -99,11 +99,14 @@ const DashboardUser = () => {
   // Hapus komentar
   const deleteKomentar = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/comments/${id}`, {
-        headers: {
-          Authorization: `Bearer ${bearerToken}`,
-        },
-      });
+      await axios.delete(
+        `https://uasbackend-production.up.railway.app/comments/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${bearerToken}`,
+          },
+        }
+      );
       console.log("Komentar berhasil dihapus.");
       fetchKomentar();
     } catch (error) {
