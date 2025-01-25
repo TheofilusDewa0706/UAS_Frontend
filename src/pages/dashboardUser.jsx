@@ -18,11 +18,14 @@ const DashboardUser = () => {
   // Fetch data komik
   const fetchKomik = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/komik/", {
-        headers: {
-          Authorization: `Bearer ${bearerToken}`,
-        },
-      });
+      const response = await axios.get(
+        "https://uasbackend-production.up.railway.app/komik/",
+        {
+          headers: {
+            Authorization: `Bearer ${bearerToken}`,
+          },
+        }
+      );
       setKomikList(response.data);
     } catch (error) {
       console.error("Error fetching komik:", error);
@@ -32,11 +35,14 @@ const DashboardUser = () => {
   // Fetch data komentar
   const fetchKomentar = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/comments/", {
-        headers: {
-          Authorization: `Bearer ${bearerToken}`,
-        },
-      });
+      const response = await axios.get(
+        "https://uasbackend-production.up.railway.app/comments/",
+        {
+          headers: {
+            Authorization: `Bearer ${bearerToken}`,
+          },
+        }
+      );
       setKomentarList(response.data);
     } catch (error) {
       console.error("Error fetching komentar:", error);
@@ -58,7 +64,7 @@ const DashboardUser = () => {
 
       if (editId) {
         await axios.put(
-          `http://localhost:8080/comments/${editId}`,
+          `https://uasbackend-production.up.railway.app/comments/${editId}`,
           newKomentar,
           {
             headers: {
@@ -68,11 +74,15 @@ const DashboardUser = () => {
         );
         console.log("Komentar berhasil diperbarui.");
       } else {
-        await axios.post("http://localhost:8080/comments/", newKomentar, {
-          headers: {
-            Authorization: `Bearer ${bearerToken}`,
-          },
-        });
+        await axios.post(
+          "https://uasbackend-production.up.railway.app/comments/",
+          newKomentar,
+          {
+            headers: {
+              Authorization: `Bearer ${bearerToken}`,
+            },
+          }
+        );
         console.log("Komentar berhasil ditambahkan.");
       }
 

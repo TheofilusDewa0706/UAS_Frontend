@@ -18,7 +18,7 @@ const DashboardAdmin = () => {
   // Fetch data komik
   const fetchKomik = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/komik/", {
+      const response = await axios.get("https://uasbackend-production.up.railway.app/komik/", {
         headers: {
           Authorization: `Bearer ${bearerToken}`,
         },
@@ -32,11 +32,14 @@ const DashboardAdmin = () => {
   // Fetch data komentar
   const fetchKomentar = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/comments/", {
-        headers: {
-          Authorization: `Bearer ${bearerToken}`,
-        },
-      });
+      const response = await axios.get(
+        "https://uasbackend-production.up.railway.app/comments/",
+        {
+          headers: {
+            Authorization: `Bearer ${bearerToken}`,
+          },
+        }
+      );
       setKomentarList(response.data);
     } catch (error) {
       console.error("Error fetching komentar:", error);
@@ -56,18 +59,26 @@ const DashboardAdmin = () => {
       };
 
       if (editId) {
-        await axios.put(`http://localhost:8080/komik/${editId}`, newKomik, {
-          headers: {
-            Authorization: `Bearer ${bearerToken}`,
-          },
-        });
+        await axios.put(
+          `https://uasbackend-production.up.railway.app/komik/${editId}`,
+          newKomik,
+          {
+            headers: {
+              Authorization: `Bearer ${bearerToken}`,
+            },
+          }
+        );
         console.log("Komik berhasil diperbarui.");
       } else {
-        await axios.post("http://localhost:8080/komik/", newKomik, {
-          headers: {
-            Authorization: `Bearer ${bearerToken}`,
-          },
-        });
+        await axios.post(
+          "https://uasbackend-production.up.railway.app/komik/",
+          newKomik,
+          {
+            headers: {
+              Authorization: `Bearer ${bearerToken}`,
+            },
+          }
+        );
         console.log("Komik berhasil ditambahkan.");
       }
 
@@ -84,11 +95,14 @@ const DashboardAdmin = () => {
   // Hapus komik
   const deleteKomik = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/komik/${id}`, {
-        headers: {
-          Authorization: `Bearer ${bearerToken}`,
-        },
-      });
+      await axios.delete(
+        `https://uasbackend-production.up.railway.app/komik/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${bearerToken}`,
+          },
+        }
+      );
       console.log("Komik berhasil dihapus.");
       fetchKomik();
     } catch (error) {
@@ -99,11 +113,14 @@ const DashboardAdmin = () => {
   // Hapus komentar
   const deleteKomentar = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/comments/${id}`, {
-        headers: {
-          Authorization: `Bearer ${bearerToken}`,
-        },
-      });
+      await axios.delete(
+        `https://uasbackend-production.up.railway.app/comments/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${bearerToken}`,
+          },
+        }
+      );
       console.log("Komentar berhasil dihapus.");
       fetchKomentar();
     } catch (error) {

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:8080", // Sesuaikan dengan URL backend Anda
+  baseURL: "https://uasbackend-production.up.railway.app", // Sesuaikan dengan URL backend Anda
 });
 
 instance.interceptors.request.use((config) => {
